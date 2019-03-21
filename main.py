@@ -62,14 +62,14 @@ if __name__ == '__main__':
     decrypt_parser.add_argument('-c', '--cipher', required=True)
     decrypt_parser.add_argument('-k', '--key', required=True)
     namespace = parser.parse_args()
+    
+    if is_valid_name(namespace.cipher, cipher_list):
+        cipher = cipher_list[namespace.cipher]
+    else:
+        raise ValueError("Cipher does not exist or is not supported")
 
     if namespace.command == 'encrypt' or namespace.command == 'decrypt':
         result = ''
-        if is_valid_name(namespace.cipher, cipher_list):
-            cipher = cipher_list[namespace.cipher]
-        else:
-            raise ValueError("Cipher does not exist or is not supported")
-
         action_list = {'encrypt': cipher.encode, 'decrypt': cipher.decode}
         action = action_list[namespace.command]
         if namespace.input:
