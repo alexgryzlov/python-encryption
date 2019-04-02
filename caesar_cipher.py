@@ -3,7 +3,7 @@ def encode(message, shift=1):
     shift %= 33
     ru_alphabet_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
     ru_alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    alphabets = [ru_alphabet_upper, ru_alphabet_lower]
+    alphabets = {ru_alphabet_upper, ru_alphabet_lower}
     encoded_message = []
     for char in message:
         alphabet = ''
@@ -23,7 +23,7 @@ def decode(encoded_message, shift=1):
     shift %= 33
     ru_alphabet_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
     ru_alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    alphabets = [ru_alphabet_upper, ru_alphabet_lower]
+    alphabets = {ru_alphabet_upper, ru_alphabet_lower}
     decoded_message = []
     for coded_char in encoded_message:
         alphabet = ''

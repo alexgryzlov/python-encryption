@@ -1,8 +1,9 @@
 import collections
 import math
 
-# Create frequency table (character returns its frequency)
+
 def make_frequency_table(message):
+    """"Create frequency table (character returns its frequency)"""
     total_chars = 0
     ru_alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     frequency_table = collections.Counter()
@@ -15,8 +16,8 @@ def make_frequency_table(message):
     return frequency_table
 
 
-# Parse frequency table from a file
 def parse_frequency_table(path):
+    """"Parse frequency table from a file"""
     frequency_table = {}
     ru_alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     for char in ru_alphabet:
@@ -28,8 +29,8 @@ def parse_frequency_table(path):
     return frequency_table
 
 
-# Calculate difference between 2 table by summing all squared differences of all characters frequencies
 def calculate_frequency_difference(table1, table2):
+    """"Calculate difference between 2 table by summing all squared differences of all characters frequencies"""
     difference = 0
     ru_alphabet = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
     for letter in ru_alphabet:

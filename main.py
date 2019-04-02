@@ -10,25 +10,20 @@ def do_nothing(string, *args, **kwargs):
 
 
 def is_valid_name(name, name_list):
-    if name in name_list:
-        return True
-    else:
-        return False
+    return name in name_list
 
 
 def read_from_file(path, *args, action=do_nothing, **kwargs):
     result = ''
-    file = open(path, 'r')
-    for line in file:
-        result += line
-    file.close()
+    with open(path, 'r') as file:
+        for line in file:
+            result += line
     return action(result, *args, **kwargs)
 
 
 def write_to_file(message, path, mode='w'):
-    file = open(path, mode)
-    file.write(message)
-    file.close()
+    with open(path, mode) as file:
+        file.write(message)
 
 
 cipher_list = {'caesar': caesar_cipher, 'vigenere': vigenere_cipher, 'vernam': vernam_cipher}
@@ -68,7 +63,7 @@ if __name__ == '__main__':
     else:
         raise ValueError("Cipher does not exist or is not supported")
 
-    if namespace.command == 'encrypt' or namespace.command == 'decrypt':
+    if namespace.command in ('encrypt', 'decrypt'):
         result = ''
         action_list = {'encrypt': cipher.encode, 'decrypt': cipher.decode}
         action = action_list[namespace.command]
