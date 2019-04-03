@@ -1,14 +1,14 @@
-from constants import alphabets
-from constants import ru_alphabet_lower as ru_alphabet
+from constants import ALPHABETS
+from constants import RU_ALPHABET_LOWER as RU_ALPHABET
 
 
 def encode(message, shift=1):
     shift = int(shift)
-    shift %= len(ru_alphabet)
+    shift %= len(RU_ALPHABET)
     encoded_message = []
     for char in message:
         alphabet = ''
-        for current_alphabet in alphabets:
+        for current_alphabet in ALPHABETS:
             if char in current_alphabet:
                 alphabet = current_alphabet
         if alphabet == '':
@@ -21,11 +21,11 @@ def encode(message, shift=1):
 
 def decode(encoded_message, shift=1):
     shift = int(shift)
-    shift %= len(ru_alphabet)
+    shift %= len(RU_ALPHABET)
     decoded_message = []
     for coded_char in encoded_message:
         alphabet = ''
-        for current_alphabet in alphabets:
+        for current_alphabet in ALPHABETS:
             if coded_char in current_alphabet:
                 alphabet = current_alphabet
         if alphabet == '':
