@@ -1,9 +1,10 @@
+from constants import alphabets
+from constants import ru_alphabet_lower as ru_alphabet
+
+
 def encode(message, shift=1):
     shift = int(shift)
-    shift %= 33
-    ru_alphabet_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-    ru_alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    alphabets = [ru_alphabet_upper, ru_alphabet_lower]
+    shift %= len(ru_alphabet)
     encoded_message = []
     for char in message:
         alphabet = ''
@@ -20,10 +21,7 @@ def encode(message, shift=1):
 
 def decode(encoded_message, shift=1):
     shift = int(shift)
-    shift %= 33
-    ru_alphabet_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-    ru_alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    alphabets = [ru_alphabet_upper, ru_alphabet_lower]
+    shift %= len(ru_alphabet)
     decoded_message = []
     for coded_char in encoded_message:
         alphabet = ''

@@ -1,7 +1,7 @@
+from constants import alphabets
+
+
 def encode(message, key="СОРОКДВА"):
-    ru_alphabet_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-    ru_alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    alphabets = [ru_alphabet_upper, ru_alphabet_lower]
     encoded_message = []
     i = 0
     for char in message:
@@ -20,9 +20,6 @@ def encode(message, key="СОРОКДВА"):
 
 
 def decode(message, key="СОРОКДВА"):
-    ru_alphabet_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-    ru_alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    alphabets = [ru_alphabet_upper, ru_alphabet_lower]
     decoded_message = []
     i = 0
     for encoded_char in message:
