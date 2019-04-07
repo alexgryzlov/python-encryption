@@ -3,6 +3,13 @@ import vigenere_cipher
 import vernam_cipher
 import frequencies
 import argparse
+from enum import Enum
+
+class commands(Enum):
+    ENCRYPT = 'encrypt'
+    DECRYPT = 'decrypt'
+    TRAIN = 'train'
+    HACK = 'hack'
 
 
 def do_nothing(string, *args, **kwargs):
@@ -63,7 +70,7 @@ if __name__ == '__main__':
     else:
         raise ValueError("Cipher does not exist or is not supported")
 
-    if namespace.command in ('encrypt', 'decrypt'):
+    if commands(namespace.command) in (commands.ENCRYPT, commands.DECRYPT):
         result = ''
         action_list = {'encrypt': cipher.encode, 'decrypt': cipher.decode}
         action = action_list[namespace.command]
@@ -76,14 +83,14 @@ if __name__ == '__main__':
         else:
             print(result)
 
-    elif namespace.command == 'train':
+    elif commands(namespace.command) == commands.TRAIN:
         message = read_from_file(namespace.input)
         frequency_table = frequencies.make_frequency_table(message)
 
         for key, value in frequency_table.most_common():
             write_to_file((str(key) + ':' + str(value) + '\n'), namespace.model_file, mode='a')
 
-    elif namespace.command == 'hack':
+    elif commands(namespace.command) == commands.HACK:
         frequency_table = frequencies.parse_frequency_table(namespace.model_file)
         if namespace.input:
             encrypted_message = read_from_file(namespace.input)
