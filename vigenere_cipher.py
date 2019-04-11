@@ -1,4 +1,4 @@
-from constants import alphabets
+from constants import ALPHABETS
 
 
 def encode(message, key="СОРОКДВА"):
@@ -6,7 +6,7 @@ def encode(message, key="СОРОКДВА"):
     i = 0
     for char in message:
         alphabet = ''
-        for current_alphabet in alphabets:
+        for current_alphabet in ALPHABETS:
             if char in current_alphabet:
                 alphabet = current_alphabet
         if alphabet == '':
@@ -24,7 +24,7 @@ def decode(message, key="СОРОКДВА"):
     i = 0
     for encoded_char in message:
         alphabet = ''
-        for current_alphabet in alphabets:
+        for current_alphabet in ALPHABETS:
             if encoded_char in current_alphabet:
                 alphabet = current_alphabet
         if alphabet == '':

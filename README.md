@@ -2,7 +2,7 @@
 
 ## Usage
 ```
-$ python main.py {encrypt decrypt train hack}
+$ python python-encryption {encrypt decrypt train hack}
 ```
 ## Encrypt/Decrypt
 ```

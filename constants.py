@@ -1,3 +1,3 @@
-ru_alphabet_lower = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
-ru_alphabet_upper = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-alphabets = {ru_alphabet_upper, ru_alphabet_lower}
+RU_ALPHABET_LOWER = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+RU_ALPHABET_UPPER = RU_ALPHABET_LOWER.upper()
+ALPHABETS = {RU_ALPHABET_LOWER, RU_ALPHABET_UPPER}
